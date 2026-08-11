@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: committee-workplace
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run login.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+    disk:
+      name: data
+      mountPath: /opt/render/project/src
+      sizeGB: 1
